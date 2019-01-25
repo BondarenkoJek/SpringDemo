@@ -14,7 +14,6 @@ public class Initializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(final ServletContext sc) throws ServletException {
-
         AnnotationConfigWebApplicationContext root =
                 new AnnotationConfigWebApplicationContext();
 
