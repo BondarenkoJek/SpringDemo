@@ -33,10 +33,6 @@ public class Config {
     public DataSource dataSource() {
         DriverManagerDataSource driverManagerDataSource =
                 new DriverManagerDataSource();
-        System.out.println(environment.getProperty(URL));
-        System.out.println(environment.getProperty(USER));
-        System.out.println(environment.getProperty(PASSWORD));
-        System.out.println(environment.getProperty(DRIVER));
         driverManagerDataSource.setUrl(environment.getProperty(URL));
         driverManagerDataSource.setUsername(environment.getProperty(USER));
         driverManagerDataSource.setPassword(environment.getProperty(PASSWORD));
