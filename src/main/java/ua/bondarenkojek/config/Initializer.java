@@ -10,7 +10,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextListener;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
-import java.sql.DriverManager;
 
 public class Initializer implements WebApplicationInitializer {
 
