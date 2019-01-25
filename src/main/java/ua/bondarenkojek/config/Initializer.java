@@ -7,8 +7,10 @@ import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletContextListener;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
+import java.sql.DriverManager;
 
 public class Initializer implements WebApplicationInitializer {
 
@@ -19,6 +21,8 @@ public class Initializer implements WebApplicationInitializer {
 
         root.scan("ua.bondarenkojek");
         sc.addListener(new ContextLoaderListener(root));
+        ServletContextListener scl = new ContextLoaderListener();
+
 
         ServletRegistration.Dynamic appServlet =
                 sc.addServlet("mvc", new DispatcherServlet(new GenericWebApplicationContext()));

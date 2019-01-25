@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @ComponentScan("ua.bondarenkojek.controller")
 @EnableWebMvc
-@ImportResource("classpath:persistence.xml")
+//@ImportResource("classpath:persistence.xml")
 public class WebAppConfig implements WebMvcConfigurer {
 
     public void configureViewResolvers(ViewResolverRegistry registry) {
