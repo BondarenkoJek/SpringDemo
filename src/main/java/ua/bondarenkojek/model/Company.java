@@ -5,15 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Set;
@@ -23,8 +19,8 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "developer")
-public class Developer {
+@Table(name = "company")
+public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -33,28 +29,11 @@ public class Developer {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "age")
-    private int age;
-
-    @Column(name = "salary")
-    private double salary;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name="developer_project",
-            joinColumns=@JoinColumn(name="developer_id", referencedColumnName="id"),
-            inverseJoinColumns=@JoinColumn(name="project_id", referencedColumnName="id"))
+    @OneToMany(mappedBy = "company")
     private Set<Project> projects;
 
-    @OneToMany(mappedBy = "developer")
-    private Set<Skill> skills;
-
-    public void addSkill(Skill skill) {
-        skill.setDeveloper(this);
-        skills.add(skill);
-    }
-
     public void addProject(Project project) {
+        project.setCompany(this);
         projects.add(project);
     }
 }

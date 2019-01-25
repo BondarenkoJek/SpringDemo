@@ -9,7 +9,7 @@ public interface DeveloperService {
 
     Developer get(Long id);
 
-    List<Developer> getAll();
+    List<Developer> findAll();
 
     void delete(Developer developer);
 

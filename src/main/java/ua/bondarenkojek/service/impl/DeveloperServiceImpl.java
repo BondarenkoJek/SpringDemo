@@ -1,9 +1,10 @@
-package ua.bondarenkojek.service;
+package ua.bondarenkojek.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.bondarenkojek.model.Developer;
 import ua.bondarenkojek.repository.DeveloperRepository;
+import ua.bondarenkojek.service.DeveloperService;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     @Override
-    public List<Developer> getAll() {
+    public List<Developer> findAll() {
         return developerRepository.findAll();
     }
 
