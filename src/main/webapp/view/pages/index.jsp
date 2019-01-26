@@ -4,6 +4,6 @@
     <title>MateAcademy</title>
   </head>
   <body>
-
+<h2>Hello Spring</h2>
   </body>
 </html>
