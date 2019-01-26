@@ -20,8 +20,6 @@ public class Initializer implements WebApplicationInitializer {
 
         root.scan("ua.bondarenkojek");
         sc.addListener(new ContextLoaderListener(root));
-        ServletContextListener scl = new ContextLoaderListener();
-
 
         ServletRegistration.Dynamic appServlet =
                 sc.addServlet("mvc", new DispatcherServlet(new GenericWebApplicationContext()));

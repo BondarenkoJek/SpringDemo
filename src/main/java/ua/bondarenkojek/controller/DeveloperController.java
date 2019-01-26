@@ -13,7 +13,7 @@ import ua.bondarenkojek.service.DeveloperService;
 
 @Controller
 @RequestMapping("/")
-public class DevController {
+public class DeveloperController {
     @Autowired
     private DeveloperService developerService;
 

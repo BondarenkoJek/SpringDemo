@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 @ComponentScan("ua.bondarenkojek")
 @EnableJpaRepositories("ua.bondarenkojek.repository")
 @PropertySource("classpath:db.properties")
-public class DbConfig {
+public class DataConfig {
     private static final String URL = "url";
     private static final String USER = "username";
     private static final String PASSWORD = "password";
