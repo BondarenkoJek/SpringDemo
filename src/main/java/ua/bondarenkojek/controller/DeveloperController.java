@@ -37,6 +37,24 @@ public class DeveloperController {
         return "index";
     }
 
+    @GetMapping("/jqDev")
+    public String index() {
+
+        return "developerJquery";
+    }
+
+    @GetMapping("/all")
+    @ResponseBody
+    public List<DeveloperDto> getAll() {
+        List<DeveloperDto> developers =
+                developerService
+                        .findAll()
+                        .stream()
+                        .map(DtoUtil::parseDeveloperToDto)
+                        .collect(Collectors.toList());
+        return developers;
+    }
+
     @GetMapping("/info/{id}")
     public String getDeveloper(@PathVariable("id") Long id, Model model) {
         DeveloperDto developer = developerService.get(id);
@@ -51,7 +69,7 @@ public class DeveloperController {
 
     @PostMapping("/create")
     public String createDeveloper(@ModelAttribute DeveloperDto developer) {
-        developerService.add(DtoUtil.DtoToDeveloper(developer));
+        developerService.add(DtoUtil.parseDtoToDeveloper(developer));
         return "redirect:/developer/";
     }
 

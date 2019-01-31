@@ -14,7 +14,7 @@ public class DtoUtil {
                 .build();
     }
 
-    public static Developer DtoToDeveloper(DeveloperDto developerDto) {
+    public static Developer parseDtoToDeveloper(DeveloperDto developerDto) {
         return Developer
                 .builder()
                 .name(developerDto.getName())

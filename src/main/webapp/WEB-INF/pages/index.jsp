@@ -7,6 +7,7 @@
 </head>
 <body>
 <div>
+
     <table class="table_blur">
 
         <tr>
