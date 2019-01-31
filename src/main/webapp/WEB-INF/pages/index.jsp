@@ -18,19 +18,21 @@
         <c:forEach var="developer" items="${developers}">
             <tr>
                 <td>${developer.name}</td>
-                <td><a href="/developer/info/${developer.id}">Info</a></td>
+                <td><a href="/developer/info/${developer.id}">info</a></td>
+                <td><a href="/developer/info/${developer.id}">edit</a></td>
                 <td>
-                    <form id="deleteDeveloper" action="/developer/delete/">
-                        <input name="id" value="${developer.id}" type="submit"/>
+                    <form>
+                        <button type="submit" name="delete" value="${developer.id}">delete</button>
                     </form>
                 </td>
-                <td><a href="/developer/delete/${developer.id}">Remove</a></td>
             </tr>
         </c:forEach>
 
     </table>
     <a href="/developer/create">Create new developer</a>
 </div>
-<script src="/resources/js/script.js"/>
+
+<script src="/resources/js/jquery-3.3.1.js"></script>
+<script src="/resources/js/script.js"></script>
 </body>
 </html>

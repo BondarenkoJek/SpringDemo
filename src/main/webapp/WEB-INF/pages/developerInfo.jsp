@@ -23,7 +23,7 @@
         </tr>
 
     </table>
-    <a href="/developer/create">Create new developer</a>
+    <a href="/developer/">Developers</a>
 </div>
 </body>
 </html>

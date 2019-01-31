@@ -1,6 +1,8 @@
 package ua.bondarenkojek.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import ua.bondarenkojek.dto.DeveloperDto;
 import ua.bondarenkojek.service.DeveloperService;
 import ua.bondarenkojek.util.DtoUtil;
@@ -35,7 +37,6 @@ public class DeveloperController {
         return "index";
     }
 
-
     @GetMapping("/info/{id}")
     public String getDeveloper(@PathVariable("id") Long id, Model model) {
         DeveloperDto developer = developerService.get(id);
@@ -54,9 +55,10 @@ public class DeveloperController {
         return "redirect:/developer/";
     }
 
-    @DeleteMapping("/delete/")
-    public String deleteDeveloper(@RequestParam("id") Long id) {
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity deleteDeveloper(@PathVariable("id") Long id) {
         developerService.delete(id);
-        return "redirect:/developer/";
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -1,23 +1,21 @@
-var script = document.createElement('script');
-script.type = 'text/javascript';
-script.src = '/resources/js/jquery-3.3.1.js';
-document.head.appendChild(script);
-
-
-$("#deleteDeveloper").submit(function(event){
+$("form").submit(function(event){
     event.preventDefault();
-
     var form = $(this);
-    var id = form.find('input[name="delete"]').val();
+    var id = form.find('button[name="delete"]').val();
+    var url = '/developer/'+id;
+    var line = form.parent('td').parent('tr');
     $.ajax({
         type : 'DELETE',
+        url : url,
         contentType: 'application/x-www-form-urlencoded',
-        data : "id=" + id,
-        success : function(data, status, xhr){
-            $("#result").html(data);
+        data : "id="+id,
+        success : function(){
+            line.remove();
         },
         error: function(xhr, status, error){
             alert(error);
         }
     });
 });
+
+
