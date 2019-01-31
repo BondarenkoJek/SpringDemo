@@ -1,5 +1,6 @@
 package ua.bondarenkojek.service;
 
+import ua.bondarenkojek.dto.DeveloperDto;
 import ua.bondarenkojek.model.Developer;
 
 import java.util.List;
@@ -7,11 +8,11 @@ import java.util.List;
 public interface DeveloperService {
     Developer add(Developer developer);
 
-    Developer get(Long id);
+    DeveloperDto get(Long id);
 
     List<Developer> findAll();
 
-    void delete(Developer developer);
+    void delete(Long id);
 
     void update(Developer developer);
 

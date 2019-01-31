@@ -2,11 +2,14 @@ package ua.bondarenkojek.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ua.bondarenkojek.dto.DeveloperDto;
 import ua.bondarenkojek.model.Developer;
 import ua.bondarenkojek.repository.DeveloperRepository;
 import ua.bondarenkojek.service.DeveloperService;
+import ua.bondarenkojek.util.DtoUtil;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DeveloperServiceImpl implements DeveloperService {
@@ -20,18 +23,19 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     @Override
-    public Developer get(Long id) {
-        return developerRepository.getOne(id);
+    public DeveloperDto get(Long id) {
+        return DtoUtil.parseDeveloperToDto(developerRepository.findById(id).get());
     }
 
     @Override
     public List<Developer> findAll() {
         return developerRepository.findAll();
+
     }
 
     @Override
-    public void delete(Developer developer) {
-        developerRepository.delete(developer);
+    public void delete(Long id) {
+        developerRepository.deleteById(id);
     }
 
     @Override

@@ -3,30 +3,60 @@ package ua.bondarenkojek.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import ua.bondarenkojek.model.Developer;
+import org.springframework.web.bind.annotation.RequestParam;
+import ua.bondarenkojek.dto.DeveloperDto;
 import ua.bondarenkojek.service.DeveloperService;
+import ua.bondarenkojek.util.DtoUtil;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/developer")
 public class DeveloperController {
     @Autowired
     private DeveloperService developerService;
 
-    @GetMapping
-    public String index() {
+    @GetMapping("/")
+    public String index(Model model) {
+        List<DeveloperDto> developers =
+                developerService
+                        .findAll()
+                        .stream()
+                        .map(DtoUtil::parseDeveloperToDto)
+                        .collect(Collectors.toList());
+        model.addAttribute("developers", developers);
         return "index";
     }
 
-    @GetMapping("developer/{id}")
+
+    @GetMapping("/info/{id}")
     public String getDeveloper(@PathVariable("id") Long id, Model model) {
-        Developer developer = developerService.get(id);
-        System.out.println(developer.getId());
+        DeveloperDto developer = developerService.get(id);
         model.addAttribute("developer", developer);
-        return "developer";
+        return "developerInfo";
+    }
+
+    @GetMapping("/create")
+    public String createDeveloper() {
+        return "createDeveloper";
+    }
+
+    @PostMapping("/create")
+    public String createDeveloper(@ModelAttribute DeveloperDto developer) {
+        developerService.add(DtoUtil.DtoToDeveloper(developer));
+        return "redirect:/developer/";
+    }
+
+    @DeleteMapping("/delete/")
+    public String deleteDeveloper(@RequestParam("id") Long id) {
+        developerService.delete(id);
+        return "redirect:/developer/";
     }
 }
