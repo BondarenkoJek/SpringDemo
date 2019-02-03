@@ -57,7 +57,7 @@ public class DeveloperController {
 
     @GetMapping("/info/{id}")
     public String getDeveloper(@PathVariable("id") Long id, Model model) {
-        DeveloperDto developer = developerService.get(id);
+        DeveloperDto developer = DtoUtil.parseDeveloperToDto(developerService.get(id));
         model.addAttribute("developer", developer);
         return "developerInfo";
     }

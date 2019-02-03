@@ -1,30 +1,35 @@
 package ua.bondarenkojek.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.bondarenkojek.dto.DeveloperDto;
 import ua.bondarenkojek.model.Developer;
 import ua.bondarenkojek.repository.DeveloperRepository;
 import ua.bondarenkojek.service.DeveloperService;
-import ua.bondarenkojek.util.DtoUtil;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class DeveloperServiceImpl implements DeveloperService {
+
+    private static  final Logger logger = LoggerFactory.getLogger(DeveloperServiceImpl.class);
 
     @Autowired
     private DeveloperRepository developerRepository;
 
     @Override
     public Developer add(Developer developer) {
-        return developerRepository.save(developer);
+        Developer result = developerRepository.save(developer);
+        logger.info("Developer successfully added!");
+        return result;
     }
 
     @Override
-    public DeveloperDto get(Long id) {
-        return DtoUtil.parseDeveloperToDto(developerRepository.findById(id).get());
+    public Developer get(Long id) {
+        Developer developer = developerRepository.findById(id).get();
+        logger.info("Developer successfully got!");
+        return developer;
     }
 
     @Override

@@ -1,23 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jek
-  Date: 1/31/19
-  Time: 19:06
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>all</title>
+    <link href="/resources/styles/style.css" rel="stylesheet"/>
 </head>
 <body>
 
-<div id="allDevelopers">
-
+<div>
+    <table id="allDevelopers" class="table_blur">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+        </tr>
+    </table>
 </div>
 
-
 <script src="/resources/js/jquery-3.3.1.js"></script>
-<script src="/resources/js/front.js"></script>
+<script src="/resources/js/script.js"></script>
 </body>
 </html>

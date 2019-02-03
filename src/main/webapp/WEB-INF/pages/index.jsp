@@ -7,9 +7,7 @@
 </head>
 <body>
 <div>
-
     <table class="table_blur">
-
         <tr>
             <th>Name</th>
             <th>Info</th>
@@ -22,14 +20,14 @@
                 <td><a href="/developer/info/${developer.id}">info</a></td>
                 <td><a href="/developer/info/${developer.id}">edit</a></td>
                 <td>
-                    <form>
+                    <form class="deleteForm">
                         <button type="submit" name="delete" value="${developer.id}">delete</button>
                     </form>
                 </td>
             </tr>
         </c:forEach>
-
     </table>
+
     <a href="/developer/create">Create new developer</a>
 </div>
 
