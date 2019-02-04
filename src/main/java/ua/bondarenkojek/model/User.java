@@ -27,5 +27,5 @@ public class User {
     private String email;
 
     @Column(name = "password")
-    private Long password;
+    private String password;
 }
