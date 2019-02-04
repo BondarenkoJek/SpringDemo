@@ -8,8 +8,8 @@
 <div>
     <form id="registrationForm" class="form" action="/registration" method="post">
         <h2>Registration</h2>
-        <label for="userName">Login</label>
-        <input id="userName" name="userName" type="text"/>
+        <label for="login">Login</label>
+        <input id="login" name="login" type="text"/>
 
         <label for="email">Email</label>
         <input id="email" name="email" type="email"/>
