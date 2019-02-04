@@ -12,6 +12,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -20,6 +21,7 @@ import javax.sql.DataSource;
 @ComponentScan("ua.bondarenkojek")
 @EnableJpaRepositories("ua.bondarenkojek.repository")
 @PropertySource("classpath:db.properties")
+@EnableTransactionManagement
 public class DataConfig {
     private static final String URL = "url";
     private static final String USER = "username";

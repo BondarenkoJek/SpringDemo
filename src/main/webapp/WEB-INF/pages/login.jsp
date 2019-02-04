@@ -2,18 +2,23 @@
 <html>
 <head>
     <title>add</title>
-    <link href="/resources/styles/style.css" rel="stylesheet"/>
+    <link href="/resources/styles/login.css" rel="stylesheet"/>
 </head>
 <body>
-<form class="form-style" action="/login" method="post">
-    <%--<h2>Registration</h2>--%>
-    <label for="login">Login</label>
-    <input id="login" name="login" type="text"/>
+<div>
+    <form id="loginForm" class="form" action="/login" method="post">
+        <h2>Authorization</h2>
+        <label for="login">Login</label>
+        <input id="login" name="login" type="text"/>
 
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password"/>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password"/>
 
-    <input value="Login" type="submit">
-</form>
+        <input value="Login" type="submit">
+        <div class="div_a"><a href="/registration">registration</a></div>
+    </form>
+</div>
+<script src="/resources/js/jquery-3.3.1.js"></script>
+<script src="/resources/js/script.js"></script>
 </body>
 </html>

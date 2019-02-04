@@ -39,14 +39,14 @@ public class Developer {
     @Column(name = "salary")
     private double salary;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name="developer_project",
             joinColumns=@JoinColumn(name="developer_id", referencedColumnName="id"),
             inverseJoinColumns=@JoinColumn(name="project_id", referencedColumnName="id"))
     private Set<Project> projects;
 
-    @OneToMany(mappedBy = "developer")
+    @OneToMany(mappedBy = "developer", cascade = CascadeType.ALL)
     private Set<Skill> skills;
 
     public void addSkill(Skill skill) {

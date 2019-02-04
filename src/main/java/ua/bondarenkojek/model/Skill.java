@@ -9,6 +9,8 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,9 +33,11 @@ public class Skill {
     private Long id;
 
     @Column(name = "type")
+    @Enumerated(value = EnumType.STRING)
     private Type type;
 
     @Column(name = "level")
+    @Enumerated(value = EnumType.STRING)
     private Level level;
 
     @ManyToOne
