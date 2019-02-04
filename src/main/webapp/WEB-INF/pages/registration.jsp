@@ -17,7 +17,6 @@
         <label for="password">Password</label>
         <input id="password" name="password" type="password"/>
 
-
         <input value="Create your account" type="submit">
 
         <div class="div_a">Already have an account?<a href="/">login</a></div>
