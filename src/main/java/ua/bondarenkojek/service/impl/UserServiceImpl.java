@@ -18,25 +18,33 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public UserDto add(UserRegistrationInput user) {
-        User resultUser = UserRegistrationInput.ofUser(user);
-        resultUser = userRepository.save(resultUser);
-        return DtoUtil.parseUserToDto(resultUser);
+    public UserDto add(UserRegistrationInput userRegistrationInput) {
+        User user = UserRegistrationInput.ofUser(userRegistrationInput);
+        user = userRepository.save(user);
+        return DtoUtil.parseUserToDto(user);
     }
 
     @Transactional(readOnly = true)
     @Override
     public UserDto get(Long id) {
-        return null;
+        User user = userRepository.getOne(id);
+        return DtoUtil.parseUserToDto(user);
     }
 
     @Override
-    public void update(UserDto user) {
-
+    public void update(UserDto userDto) {
+        User user = DtoUtil.parseDtoToUser(userDto);
+        userRepository.save(user);
     }
 
     @Override
     public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
 
+    @Override
+    public UserDto geUserByLogin(String login) {
+        User user = userRepository.getUserByLogin(login);
+        return DtoUtil.parseUserToDto(user);
     }
 }

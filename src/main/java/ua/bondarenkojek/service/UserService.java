@@ -11,4 +11,6 @@ public interface UserService {
     void update(UserDto user);
 
     void delete(Long id);
+
+    UserDto geUserByLogin(String login);
 }
