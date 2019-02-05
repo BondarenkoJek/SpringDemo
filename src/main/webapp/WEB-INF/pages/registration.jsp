@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <form id="registrationForm" class="form">
+    <form id="registrationForm" class="form" method="post">
         <h2>Registration</h2>
         <label for="login">Login</label>
         <input id="login" name="login" type="text"/>

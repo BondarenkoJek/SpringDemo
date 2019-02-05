@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <form id="loginForm" class="form">
+    <form id="loginForm" class="form" method="post">
         <h2>Authorization</h2>
         <label for="login">Login</label>
         <input id="login" name="login" type="text"/>
@@ -19,6 +19,6 @@
         <div class="div_a"><a href="/registration">registration</a></div>
     </form>
 </div>
-<script src="/resources/js/script.js"></script>
+<script src="/resources/js/login.js"></script>
 </body>
 </html>

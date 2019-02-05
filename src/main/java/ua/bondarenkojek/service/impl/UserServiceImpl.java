@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public UserDto geUserByLogin(String login) {
         User user = userRepository.getUserByLogin(login);

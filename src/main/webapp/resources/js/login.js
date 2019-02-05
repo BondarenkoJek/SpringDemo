@@ -1,5 +1,5 @@
 $("#loginForm").submit(function () {
-    var url = '/registration';
+    var url = '/login';
     var login = $('#login').val();
     var password = $('#password').val();
     var user = {

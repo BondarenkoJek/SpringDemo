@@ -34,10 +34,15 @@ public class AuthController {
 
     @PostMapping("login")
     public ResponseEntity login(@RequestBody UserLoginInput userLoginInput) {
-        User user = UserLoginInput.toUser(userLoginInput);
-        UserDto userDto = userService.geUserByLogin(user.getLogin());
+        UserDto userDto = userService.geUserByLogin(userLoginInput.getLogin());
 
-        return new ResponseEntity(userDto == null ? HttpStatus.NOT_FOUND : HttpStatus.OK);
+        HttpStatus status = HttpStatus.NOT_FOUND;
+
+        if (userDto != null && userDto.getPassword().equals(userLoginInput.getPassword())) {
+            status = HttpStatus.OK;
+        }
+
+        return new ResponseEntity(status);
     }
 
     @GetMapping("registration")
