@@ -27,10 +27,10 @@ public class DeveloperServiceImpl implements DeveloperService {
 
     @Transactional
     @Override
-    public Developer add(Developer developer) {
+    public DeveloperDto add(Developer developer) {
         Developer result = developerRepository.save(developer);
         logger.info("Developer successfully saved. Developer details: " + result);
-        return result;
+        return DtoUtil.parseDeveloperToDto(result);
     }
 
     @Override

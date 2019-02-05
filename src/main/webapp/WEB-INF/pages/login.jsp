@@ -3,10 +3,11 @@
 <head>
     <title>add</title>
     <link href="/resources/styles/login.css" rel="stylesheet"/>
+    <script src="/resources/js/jquery-3.3.1.js"></script>
 </head>
 <body>
 <div>
-    <form id="loginForm" class="form" action="/login" method="post">
+    <form id="loginForm" class="form">
         <h2>Authorization</h2>
         <label for="login">Login</label>
         <input id="login" name="login" type="text"/>
@@ -18,7 +19,6 @@
         <div class="div_a"><a href="/registration">registration</a></div>
     </form>
 </div>
-<script src="/resources/js/jquery-3.3.1.js"></script>
 <script src="/resources/js/script.js"></script>
 </body>
 </html>

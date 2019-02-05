@@ -14,7 +14,6 @@ $.ajax({
 
 function drawDevelopers(developers) {
     for (var i = 0; i < developers.length; i++) {
-        // var result = $("<h3>" + developers[i].name + "</h3>");
         var result = $("<tr>"
             + "<td>" + developers[i].id + "</td>"
             + "<td>" + developers[i].name + "</td>"
@@ -25,25 +24,11 @@ function drawDevelopers(developers) {
     }
 }
 
-//delete
-$(".deleteForm").submit(function (event) {
-    event.preventDefault();
-    var form = $(this);
-    var id = form.find('button[name="delete"]').val();
-    var url = '/developer/' + id;
-    var line = form.parent('td').parent('tr');
-    $.ajax({
-        type: 'DELETE',
-        url: url,
-        contentType: 'application/x-www-form-urlencoded',
-        data: "id=" + id,
-        success: function () {
-            line.remove();
-        },
-        error: function (xhr, status, error) {
-            alert(error);
-        }
-    });
-});
+
+
+
+
+
+
 
 

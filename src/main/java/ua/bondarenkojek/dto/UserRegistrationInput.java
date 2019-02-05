@@ -13,7 +13,7 @@ public class UserRegistrationInput {
     private String email;
     private String password;
 
-    public static User toUser(UserRegistrationInput userRegistrationInput) {
+    public static User ofUser(UserRegistrationInput userRegistrationInput) {
         return User.builder()
                 .login(userRegistrationInput.login)
                 .email(userRegistrationInput.email)

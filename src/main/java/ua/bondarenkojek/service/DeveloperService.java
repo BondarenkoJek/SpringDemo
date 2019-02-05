@@ -6,7 +6,7 @@ import ua.bondarenkojek.model.Developer;
 import java.util.List;
 
 public interface DeveloperService {
-    Developer add(Developer developer);
+    DeveloperDto add(Developer developer);
 
     DeveloperDto get(Long id);
 
