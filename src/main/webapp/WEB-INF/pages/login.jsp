@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <form id="loginForm" class="form" method="post">
+    <form id="loginForm" class="form">
         <h2>Authorization</h2>
         <label for="login">Login</label>
         <input id="login" name="login" type="text"/>

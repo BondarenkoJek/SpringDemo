@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ua.bondarenkojek.dto.UserDto;
 import ua.bondarenkojek.dto.UserLoginInput;
 import ua.bondarenkojek.dto.UserRegistrationInput;
-import ua.bondarenkojek.model.User;
 import ua.bondarenkojek.service.UserService;
 
 @Controller
