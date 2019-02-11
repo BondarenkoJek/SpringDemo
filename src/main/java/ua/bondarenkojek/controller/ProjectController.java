@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ua.bondarenkojek.dto.DeveloperDto;
-import ua.bondarenkojek.service.DeveloperService;
+import ua.bondarenkojek.dto.ProjectDto;
+import ua.bondarenkojek.service.ProjectService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/developers")
-public class DeveloperController {
+@RequestMapping("/projects")
+public class ProjectController {
 
     @Autowired
-    private DeveloperService developerService;
+    private ProjectService projectService;
 
     @GetMapping("/")
-    public List<DeveloperDto> getAll() {
-        List<DeveloperDto> developers = developerService.findAll();
-        return developers;
+    public List<ProjectDto> getAll() {
+        List<ProjectDto> projects = projectService.findAll();
+        return projects;
     }
 
     @PostMapping("/")
@@ -40,8 +40,7 @@ public class DeveloperController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable("id") Long id) {
-        developerService.delete(id);
+        projectService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
-

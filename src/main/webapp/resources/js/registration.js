@@ -18,6 +18,7 @@ $("#registrationForm").submit(function () {
         async: true,
         success: function () {
             console.log("successfully");
+            top.location.href = '/login';
         },
         error: function (xhr, status, error) {
             console.log(error);

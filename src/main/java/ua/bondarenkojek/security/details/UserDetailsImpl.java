@@ -1,4 +1,4 @@
-package ua.bondarenkojek.config.security.details;
+package ua.bondarenkojek.security.details;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -46,7 +46,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !user.getState().equals(UserState.BANNED);
+        return !UserState.BANNED.equals(user.getState());
     }
 
     @Override
@@ -56,6 +56,6 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.getState().equals(UserState.ACTIVE);
+        return UserState.ACTIVE.equals(user.getState());
     }
 }

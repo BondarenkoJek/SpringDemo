@@ -1,13 +1,18 @@
 package ua.bondarenkojek.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ua.bondarenkojek.dto.ProjectDto;
 import ua.bondarenkojek.model.Developer;
 import ua.bondarenkojek.model.Project;
 import ua.bondarenkojek.repository.ProjectRepository;
 import ua.bondarenkojek.service.ProjectService;
+import ua.bondarenkojek.util.DtoUtil;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Service
 public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
@@ -30,12 +35,11 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public void update(Project project) {
         projectRepository.save(project);
-
     }
 
     @Override
-    public void delete(Project project) {
-        projectRepository.delete(project);
+    public void delete(Long id) {
+        projectRepository.deleteById(id);
     }
 
     @Override
@@ -44,8 +48,12 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<Project> findAll() {
-        return projectRepository.findAll();
+    public List<ProjectDto> findAll() {
+        return projectRepository
+                .findAll()
+                .stream()
+                .map(DtoUtil::parseProjectToDto)
+                .collect(Collectors.toList());
     }
 
     @Override
