@@ -3,11 +3,10 @@
 <head>
     <title>Registration</title>
     <link href="/resources/styles/registration.css" rel="stylesheet"/>
-    <script src="/resources/js/jquery-3.3.1.js"></script>
 </head>
 <body>
 <div>
-    <form id="registrationForm" class="form">
+    <form id="registrationForm" class="form" action="/registration" method="post">
         <h2>Registration</h2>
         <label for="login">Login</label>
         <input id="login" name="login" type="text"/>
@@ -20,10 +19,8 @@
 
         <input value="Create your account" type="submit">
 
-        <div class="div_a">Already have an account?<a href="/">login</a></div>
+        <div class="div_a">Already have an account?<a href="/login">login</a></div>
     </form>
 </div>
-
-<script src="/resources/js/registration.js"></script>
 </body>
 </html>

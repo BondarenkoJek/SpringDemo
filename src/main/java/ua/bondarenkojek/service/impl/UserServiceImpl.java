@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.bondarenkojek.dto.UserDto;
 import ua.bondarenkojek.dto.UserRegistrationInput;
-import ua.bondarenkojek.model.User;
+import ua.bondarenkojek.model.user.User;
 import ua.bondarenkojek.repository.UserRepository;
 import ua.bondarenkojek.service.UserService;
 import ua.bondarenkojek.util.DtoUtil;

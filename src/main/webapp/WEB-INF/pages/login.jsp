@@ -3,7 +3,6 @@
 <head>
     <title>add</title>
     <link href="/resources/styles/login.css" rel="stylesheet"/>
-    <script src="/resources/js/jquery-3.3.1.js"></script>
 </head>
 <body>
 <div>
@@ -19,6 +18,5 @@
         <div class="div_a"><a href="/registration">registration</a></div>
     </form>
 </div>
-<script src="/resources/js/login.js"></script>
 </body>
 </html>

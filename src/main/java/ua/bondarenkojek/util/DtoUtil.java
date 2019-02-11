@@ -3,7 +3,7 @@ package ua.bondarenkojek.util;
 import ua.bondarenkojek.dto.DeveloperDto;
 import ua.bondarenkojek.dto.UserDto;
 import ua.bondarenkojek.model.Developer;
-import ua.bondarenkojek.model.User;
+import ua.bondarenkojek.model.user.User;
 
 public class DtoUtil {
     public static DeveloperDto parseDeveloperToDto(Developer developer) {

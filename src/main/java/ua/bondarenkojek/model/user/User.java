@@ -1,4 +1,4 @@
-package ua.bondarenkojek.model;
+package ua.bondarenkojek.model.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,4 +32,10 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "role")
+    private UserRole role;
+
+    @Column(name = "state")
+    private UserState state;
 }
