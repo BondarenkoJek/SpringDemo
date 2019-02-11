@@ -17,7 +17,6 @@ import ua.bondarenkojek.service.DeveloperService;
 import ua.bondarenkojek.util.DtoUtil;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/developer")
@@ -27,12 +26,7 @@ public class DeveloperController {
 
     @GetMapping("/")
     public String index(Model model) {
-        List<DeveloperDto> developers =
-                developerService
-                        .findAll()
-                        .stream()
-                        .map(DtoUtil::parseDeveloperToDto)
-                        .collect(Collectors.toList());
+        List<DeveloperDto> developers = developerService.findAll();
         model.addAttribute("developers", developers);
         return "index";
     }
@@ -46,18 +40,13 @@ public class DeveloperController {
     @GetMapping("/all")
     @ResponseBody
     public List<DeveloperDto> getAll() {
-        List<DeveloperDto> developers =
-                developerService
-                        .findAll()
-                        .stream()
-                        .map(DtoUtil::parseDeveloperToDto)
-                        .collect(Collectors.toList());
+        List<DeveloperDto> developers = developerService.findAll();
         return developers;
     }
 
     @GetMapping("/info/{id}")
     public String getDeveloper(@PathVariable("id") Long id, Model model) {
-        DeveloperDto developer = DtoUtil.parseDeveloperToDto(developerService.get(id));
+        DeveloperDto developer = developerService.get(id);
         model.addAttribute("developer", developer);
         return "developerInfo";
     }

@@ -32,6 +32,6 @@
 </div>
 
 <script src="/resources/js/jquery-3.3.1.js"></script>
-<script src="/resources/js/script.js"></script>
+<script src="/resources/js/delete.js"></script>
 </body>
 </html>

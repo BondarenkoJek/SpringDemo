@@ -1,46 +1,51 @@
 package ua.bondarenkojek.service.impl;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import ua.bondarenkojek.dto.DeveloperDto;
 import ua.bondarenkojek.model.Developer;
 import ua.bondarenkojek.repository.DeveloperRepository;
 import ua.bondarenkojek.service.DeveloperService;
+import ua.bondarenkojek.util.DtoUtil;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
+@Transactional(readOnly = true)
 public class DeveloperServiceImpl implements DeveloperService {
-
-    private static  final Logger logger = LoggerFactory.getLogger(DeveloperServiceImpl.class);
 
     @Autowired
     private DeveloperRepository developerRepository;
 
+    @Transactional
     @Override
-    public Developer add(Developer developer) {
+    public DeveloperDto add(Developer developer) {
         Developer result = developerRepository.save(developer);
-        logger.info("Developer successfully added!");
-        return result;
+        return DtoUtil.parseDeveloperToDto(result);
     }
 
     @Override
-    public Developer get(Long id) {
-        Developer developer = developerRepository.findById(id).get();
-        logger.info("Developer successfully got!");
-        return developer;
+    public DeveloperDto get(Long id) {
+        Developer developer = developerRepository.getOne(id);
+        return DtoUtil.parseDeveloperToDto(developer);
     }
 
     @Override
-    public List<Developer> findAll() {
-        return developerRepository.findAll();
-
+    public List<DeveloperDto> findAll() {
+        List<DeveloperDto> developers = developerRepository
+                .findAll()
+                .stream()
+                .map(DtoUtil::parseDeveloperToDto)
+                .collect(Collectors.toList());
+        return developers;
     }
 
+    @Transactional
     @Override
     public void delete(Long id) {
-        developerRepository.deleteById(id);
+            developerRepository.deleteById(id);
     }
 
     @Override
@@ -49,7 +54,12 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     @Override
-    public List<Developer> getDevelopersWithSalaryMoreThen(Double salary) {
-        return developerRepository.findAllBySalaryGreaterThan(salary);
+    public List<DeveloperDto> getDevelopersWithSalaryMoreThen(Double salary) {
+        List<DeveloperDto> developers = developerRepository
+                .findAllBySalaryGreaterThan(salary)
+                .stream()
+                .map(DtoUtil::parseDeveloperToDto)
+                .collect(Collectors.toList());
+        return developers;
     }
 }
