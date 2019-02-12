@@ -31,13 +31,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/developers")
+                .antMatchers("/developers/")
                 .hasAnyAuthority("DEVELOPER", "ADMIN", "TEAM_LEAD")
 
                 .antMatchers("/developers/**")
                 .hasAnyAuthority("ADMIN", "TEAM_LEAD")
 
-                .antMatchers("/projects")
+                .antMatchers("/projects/")
                 .hasAnyAuthority("DEVELOPER", "ADMIN", "TEAM_LEAD", "CUSTOMER")
 
                 .antMatchers("/projects/**")
@@ -51,11 +51,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .defaultSuccessUrl("/")
                 .loginPage("/login")
-                .permitAll()
-                .and()
-                .rememberMe()
-                .rememberMeParameter("remember-me").userDetailsService(userDetailsService)
-                .tokenRepository(tokenRepository());
+                .permitAll();
+//                .and()
+//                .rememberMe()
+//                .rememberMeParameter("remember-me").userDetailsService(userDetailsService)
+//                .tokenRepository(tokenRepository());
 
     }
 
