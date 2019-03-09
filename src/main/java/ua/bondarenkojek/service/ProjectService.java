@@ -1,5 +1,6 @@
 package ua.bondarenkojek.service;
 
+import ua.bondarenkojek.dto.ProjectDto;
 import ua.bondarenkojek.model.Developer;
 import ua.bondarenkojek.model.Project;
 
@@ -14,11 +15,11 @@ public interface ProjectService {
 
     void update(Project project);
 
-    void delete(Project project);
+    void delete(Long id);
 
     void removeDeveloperFromProject(Project project, Developer developer);
 
-    List<Project> findAll();
+    List<ProjectDto> findAll();
 
     Double getAllSalaryByProject(Project project);
 }

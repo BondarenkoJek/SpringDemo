@@ -1,18 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>add</title>
     <link href="/resources/styles/login.css" rel="stylesheet"/>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </head>
 <body>
 <div>
-    <form id="loginForm" class="form">
+    <form id="loginForm" class="form" action="/login", method="post">
         <h2>Authorization</h2>
         <label for="login">Login</label>
         <input id="login" name="login" type="text"/>
 
         <label for="password">Password</label>
         <input id="password" name="password" type="password"/>
+
+        <c:if test="${error}" >
+            <div class="alert-danger">login or password entered incorrectly</div>
+        </c:if>
 
         <input value="Login" type="submit">
         <div class="div_a"><a href="/registration">registration</a></div>

@@ -1,4 +1,5 @@
-$("#registrationForm").submit(function () {
+$("#registrationForm").submit(function (event) {
+    event.preventDefault();
     var url = '/registration';
     var login = $('#login').val();
     var email = $('#email').val();
@@ -10,16 +11,16 @@ $("#registrationForm").submit(function () {
     };
 
     $.ajax({
+        type: 'POST',
         url: url,
         contentType: 'application/json',
         dataType: "json",
-        type: 'POST',
         data: JSON.stringify(user),
-        async: true,
         success: function () {
             console.log("successfully");
+            top.location.href = '/login';
         },
-        error: function (xhr, status, error) {
+        error: function (error) {
             console.log(error);
         }
     });

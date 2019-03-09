@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,8 +35,10 @@ public class User {
     private String password;
 
     @Column(name = "role")
+    @Enumerated
     private UserRole role;
 
     @Column(name = "state")
+    @Enumerated
     private UserState state;
 }

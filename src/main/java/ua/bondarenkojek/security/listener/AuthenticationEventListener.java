@@ -1,4 +1,4 @@
-package ua.bondarenkojek.config.security.listener;
+package ua.bondarenkojek.security.listener;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AbstractAuthenticationEvent;
@@ -6,7 +6,7 @@ import org.springframework.security.authentication.event.InteractiveAuthenticati
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class AuthenticationEventListener implements ApplicationListener<AbstractAuthenticationEvent> {
 
     @Override

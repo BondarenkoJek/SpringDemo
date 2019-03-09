@@ -1,8 +1,10 @@
 package ua.bondarenkojek.util;
 
 import ua.bondarenkojek.dto.DeveloperDto;
+import ua.bondarenkojek.dto.ProjectDto;
 import ua.bondarenkojek.dto.UserDto;
 import ua.bondarenkojek.model.Developer;
+import ua.bondarenkojek.model.Project;
 import ua.bondarenkojek.model.user.User;
 
 public class DtoUtil {
@@ -40,6 +42,18 @@ public class DtoUtil {
                 .id(userDto.getId())
                 .login(userDto.getLogin())
                 .password(userDto.getPassword())
+                .build();
+    }
+
+    public static Project parseDtoToProjrct(ProjectDto projectDto) {
+        return Project
+                .builder()
+                .build();
+    }
+
+    public static ProjectDto parseProjectToDto(Project project) {
+        return ProjectDto
+                .builder()
                 .build();
     }
 }

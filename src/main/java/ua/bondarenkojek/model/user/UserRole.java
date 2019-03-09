@@ -2,5 +2,7 @@ package ua.bondarenkojek.model.user;
 
 public enum UserRole {
     ADMIN,
-    USER;
+    DEVELOPER,
+    TEAM_LEAD,
+    CUSTOMER
 }
